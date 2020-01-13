@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Dhairya\TestGraph\Api\Data\TestGraphInterface" type="Dhairya\TestGraph\Model\TestGraph"/>
+    <preference for="Dhairya\TestGraph\Api\TestGraphRepositoryInterface" type="Dhairya\TestGraph\Model\TestGraphRepository"/>
+    <type name="Magento\Framework\GraphQl\Query\Resolver\Argument\FieldEntityAttributesPool">
+        <arguments>
+            <argument name="attributesInstances" xsi:type="array">
+                <item name="test_graph" xsi:type="object">
+                    \Dhairya\TestGraph\Model\Resolver\FilterArgument
+                </item>
+            </argument>
+        </arguments>
+    </type>
+</config>

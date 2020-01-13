@@ -1,0 +1,22 @@
+type Query {
+    testGraph(
+        filter: testGraphFilterInput @doc(description: "")
+        pageSize: Int = 5 @doc(description: "How many items should show on the page")
+        currentPage: Int = 1 @doc(description: "Allows to ussing paging it start with 1")
+    ):testGraphOutput @resolver(class: "\\Dhairya\\TestGraph\\Model\\Resolver\\TestGraph") @doc(description: "The Impelemention to resolve Test Graph")
+}
+
+input testGraphFilterInput {
+    name: FilterTypeInput  @doc(description: "")
+    or: testGraphFilterInput
+}
+
+type testGraphOutput {
+    total_count:  Int @doc(description: "")
+    items: [TestGraph] @doc(description: "")
+}
+
+type TestGraph {
+    name: String @doc(description: ""),
+    description: String @doc(description: ""),
+}
